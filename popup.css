@@ -45,8 +45,32 @@
   }
 }
 .popup__title {
-  font-size: 30px;
+  font-size: 24px;
   text-transform: uppercase;
+  animation-name: stretch;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+.win {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+@keyframes stretch {
+  0% {
+    color: rgb(146, 231, 146);
+  }
+
+  50% {
+    color: rgb(241, 194, 106);
+  }
+
+  100% {
+    color: rgb(230, 124, 124);
+  }
 }
 
 .btn-wrapper {
@@ -77,11 +101,6 @@
   color: lightgreen;
 }
 
-.answer,
-.incorrect {
-  color: lightpink;
-}
-
 .btn:hover {
   color: #fff;
   transition-delay: 1s;
@@ -90,11 +109,6 @@
 .again:hover {
   background-color: lightgreen;
   box-shadow: 0 0 10px lightgreen, 0 0 40px lightgreen, 0 0 80px lightgreen;
-}
-
-.answer:hover {
-  background-color: lightpink;
-  box-shadow: 0 0 10px lightpink, 0 0 40px lightpink, 0 0 80px lightpink;
 }
 
 .btn span {
@@ -111,9 +125,6 @@
 .again span:nth-child(1) {
   background: linear-gradient(90deg, transparent, lightgreen);
 }
-.answer span:nth-child(1) {
-  background: linear-gradient(90deg, transparent, lightpink);
-}
 .btn:hover span:nth-child(1) {
   left: 100%;
   transition: 1s;
@@ -127,9 +138,6 @@
 }
 .again span:nth-child(2) {
   background: linear-gradient(180deg, transparent, lightgreen);
-}
-.answer span:nth-child(2) {
-  background: linear-gradient(180deg, transparent, lightpink);
 }
 .btn:hover span:nth-child(2) {
   top: 100%;
@@ -146,9 +154,6 @@
 .again span:nth-child(3) {
   background: linear-gradient(270deg, transparent, lightgreen);
 }
-.answer span:nth-child(3) {
-  background: linear-gradient(270deg, transparent, lightpink);
-}
 .btn:hover span:nth-child(3) {
   right: 100%;
   transition: 1s;
@@ -163,9 +168,6 @@
 }
 .again span:nth-child(4) {
   background: linear-gradient(360deg, transparent, lightgreen);
-}
-.answer span:nth-child(4) {
-  background: linear-gradient(360deg, transparent, lightpink);
 }
 .btn:hover span:nth-child(4) {
   bottom: 100%;
