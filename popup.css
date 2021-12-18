@@ -1,0 +1,184 @@
+.popup__wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.popup {
+  position: relative;
+  margin: 10px;
+  padding: 30px;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(120deg, #3498db, #8e44ad, #3498db);
+  background-size: 200%;
+  transition: 0.5s;
+}
+.popup:hover {
+  background-position: right;
+}
+.close {
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  color: lightpink;
+  font-size: 30px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.close:hover {
+  font-size: 40px;
+  transition: 0.5s;
+  animation: spin 1s linear;
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.popup__title {
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.btn-wrapper {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  padding: 15px 30px;
+  background-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-decoration: none;
+  font-size: 24px;
+  overflow: hidden;
+  transition: 0.5s;
+  outline: none;
+  border: none;
+}
+
+.again,
+.correct {
+  color: lightgreen;
+}
+
+.answer,
+.incorrect {
+  color: lightpink;
+}
+
+.btn:hover {
+  color: #fff;
+  transition-delay: 1s;
+}
+
+.again:hover {
+  background-color: lightgreen;
+  box-shadow: 0 0 10px lightgreen, 0 0 40px lightgreen, 0 0 80px lightgreen;
+}
+
+.answer:hover {
+  background-color: lightpink;
+  box-shadow: 0 0 10px lightpink, 0 0 40px lightpink, 0 0 80px lightpink;
+}
+
+.btn span {
+  position: absolute;
+  display: block;
+}
+
+.btn span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+}
+.again span:nth-child(1) {
+  background: linear-gradient(90deg, transparent, lightgreen);
+}
+.answer span:nth-child(1) {
+  background: linear-gradient(90deg, transparent, lightpink);
+}
+.btn:hover span:nth-child(1) {
+  left: 100%;
+  transition: 1s;
+}
+
+.btn span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+}
+.again span:nth-child(2) {
+  background: linear-gradient(180deg, transparent, lightgreen);
+}
+.answer span:nth-child(2) {
+  background: linear-gradient(180deg, transparent, lightpink);
+}
+.btn:hover span:nth-child(2) {
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.25s;
+}
+
+.btn span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+}
+.again span:nth-child(3) {
+  background: linear-gradient(270deg, transparent, lightgreen);
+}
+.answer span:nth-child(3) {
+  background: linear-gradient(270deg, transparent, lightpink);
+}
+.btn:hover span:nth-child(3) {
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.5s;
+}
+
+.btn span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+}
+.again span:nth-child(4) {
+  background: linear-gradient(360deg, transparent, lightgreen);
+}
+.answer span:nth-child(4) {
+  background: linear-gradient(360deg, transparent, lightpink);
+}
+.btn:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .btn-wrapper {
+    flex-wrap: wrap;
+  }
+}
