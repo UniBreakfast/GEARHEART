@@ -156,42 +156,52 @@ const randomColors = get25Colors();
 paintBlocks(randomColors);
 showColorList(shuffle(randomColors));
 
-// close.addEventListener('click', function () {
-//   popupWrapper.classList.add('hidden');
-// })
+closeBtn.addEventListener('click', function () {
+  popupWrapper.classList.add('hidden');
+})
 
 namesContent.addEventListener('click', function (e) {
-  const li = e.target.closest('li');
-  if (li.classList.contains('disabled')) {
+  const namesContentList = e.target.closest('li');
+  if (namesContentList.classList.contains('disabled')) {
     return;
   }
   namesContent.querySelector('.active')?.classList.remove('active');
-  li.classList.add('active');
+  namesContentList.classList.add('active');
   checkPair()
 })
 
 colorsContent.addEventListener('click', function (e) {
-  const span = e.target.closest('span');
-  if (span.classList.contains('disabled')) {
+  const colorsContentList = e.target.closest('span');
+  if (colorsContentList.classList.contains('disabled')) {
     return;
   }
   colorsContent.querySelector('.active')?.classList.remove('active');
-  span.classList.add('active');
+  colorsContentList.classList.add('active');
   checkPair()
 })
 
 function checkPair() {
-  const li = namesContent.querySelector('.active');
-  const span = colorsContent.querySelector('.active');
-  if (!li || !span) {
+  const namesContentList = namesContent.querySelector('.active');
+  const colorsContentList = colorsContent.querySelector('.active');
+  if (!namesContentList || !colorsContentList) {
     return
   }
-  if (li.innerText.toLowerCase() == span.style.backgroundColor) {
-    li.classList.add('disabled');
-    span.classList.add('disabled');
+  if (namesContentList.innerText.toLowerCase() == colorsContentList.style.backgroundColor) {
+    namesContentList.classList.add('disabled');
+    colorsContentList.classList.add('disabled');
   }
-  li.classList.remove('active');
-  span.classList.remove('active');
+  if (namesContentList !== colorsContentList) {
+    namesContentList.classList.add('wrong');
+    setTimeout(() => {
+      namesContentList.classList.remove('wrong');
+    }, 1000);
+    colorsContentList.classList.add('wrong');
+    setTimeout(() => {
+      colorsContentList.classList.remove('wrong');
+    }, 1000);
+  }
+  namesContentList.classList.remove('active');
+  colorsContentList.classList.remove('active');
   checkForFinish()
 }
 
@@ -236,7 +246,3 @@ function shuffle(arr) {
   }
   return shuffledArr;
 }
-
-
-// function matchColors() {
-// }

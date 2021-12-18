@@ -40,7 +40,7 @@ main {
 .name__link {
   display: inline-block;
   margin: 8px 0;
-  padding-left: 25px;
+  padding: 0 5px;
   color: #000;
   text-decoration: none;
   text-transform: capitalize;
@@ -74,11 +74,6 @@ main {
   box-sizing: border-box;
 }
 
-/* .color:hover {
-  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.3) inset;
-  transition: ease 0.5s;
-} */
-
 .names__menu::-webkit-scrollbar {
   width: 0.5em;
   cursor: pointer;
@@ -102,6 +97,11 @@ main {
   opacity: 0.1;
   transform: scale(0.8);
   cursor: default;
+}
+
+.wrong {
+  box-shadow: 0 0 1px 1px lightpink;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
