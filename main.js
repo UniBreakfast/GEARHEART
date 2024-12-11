@@ -31,7 +31,6 @@ const colorNames = [
   'darkgoldenrod',
   'darkgray',
   'darkgreen',
-  'darkgrey',
   'darkkhaki',
   'darkmagenta',
   'darkolivegreen',
@@ -42,13 +41,11 @@ const colorNames = [
   'darkseagreen',
   'darkslateblue',
   'darkslategray',
-  'darkslategrey',
   'darkturquoise',
   'darkviolet',
   'deeppink',
   'deepskyblue',
   'dimgray ',
-  'dimgrey',
   'dodgerblue',
   'firebrick',
   'floralwhite',
@@ -61,7 +58,6 @@ const colorNames = [
   'gray',
   'green',
   'greenyellow',
-  'grey',
   'honeydew',
   'hotpink',
   'indianred',
@@ -78,13 +74,11 @@ const colorNames = [
   'lightgoldenrodyellow',
   'lightgray',
   'lightgreen',
-  'lightgrey',
   'lightpink',
   'lightsalmon',
   'lightseagreen',
   'lightskyblue',
   'lightslategray',
-  'lightslategrey',
   'lightsteelblue',
   'lightyellow',
   'lime',
@@ -137,7 +131,6 @@ const colorNames = [
   'skyblue',
   'slateblue',
   'slategray',
-  'slategrey',
   'snow',
   'springgreen',
   'steelblue',
@@ -155,6 +148,8 @@ const colorNames = [
 const randomColors = get25Colors();
 paintBlocks(randomColors);
 showColorList(shuffle(randomColors));
+
+let mistakeCount = 0;
 
 closeBtn.addEventListener('click', function () {
   popupWrapper.classList.add('hidden');
@@ -191,6 +186,7 @@ function checkPair() {
     colorsContentList.classList.add('disabled');
   }
   if (namesContentList !== colorsContentList) {
+    mistakeCount++;
     namesContentList.classList.add('wrong');
     setTimeout(() => {
       namesContentList.classList.remove('wrong');
@@ -208,6 +204,7 @@ function checkPair() {
 function checkForFinish() {
   if (!colorsContent.querySelector(':not(.disabled)')) {
     popupWrapper.classList.remove('hidden');
+    output.value = mistakeCount;
   }
 }
 
